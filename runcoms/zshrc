@@ -11,29 +11,3 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-function prj {
-    cd $HOME/src/$1
-}
-function gprj {
-    cd $HOME/src/go_path/src/github.com/trussworks/$1
-}
-
-alias src='cd ~/src/'
-alias ke='emacsclient -e '"'(kill-emacs)'"
-alias goops='git reset --soft HEAD~1'
-
-# Override some ones that don't work as expected
-alias gd='git diff'
-alias subl='open -a Sublime\ Text'
-
-
-# Add jp to pretty print json if we have jq 
-if [ `command -v jq` ]; then
-    alias jp="jq '.'"
-fi
-
-if [ -d /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin ]; then
-	alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
-fi
-
-alias pjr='prj'
