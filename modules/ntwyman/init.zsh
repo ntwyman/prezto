@@ -14,7 +14,6 @@ alias src='cd ~/src/'
 alias goops='git reset --soft HEAD~1'
 alias pjr='prj'
 alias fga='alias | grep git | grep'
-alias fa='alias | grep'
 
 # Add jp to pretty print json if we have jq 
 if [ `command -v jq` ]; then
