@@ -30,4 +30,9 @@ alias mmm='prj mymove'
 ulimit -n 5000
 eval "$(direnv hook bash)"
 
+if [ -d $HOME/.cargo ]; then
+    path+=$HOME/.cargo/bin
+fi
+
 export AWS_VAULT_KEYCHAIN_NAME=login
+
