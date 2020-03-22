@@ -27,10 +27,16 @@ fi
 
 alias mmm='prj mymove'
 ulimit -n 5000
-eval "$(direnv hook bash)"
+if [ `command -v direnv` ]; then 
+    eval "$(direnv hook bash)"
+fi
 
 if [ -d $HOME/.cargo ]; then
     path+=$HOME/.cargo/bin
+fi
+
+if [ -d $HOME/src/seL4-CAmkES-L4v-dockerfiles ]; then
+   alias container="make -C /$HOME/src/seL4-CAmkES-L4v-dockerfiles user HOST_DIR=$HOME/src/seL4_play"
 fi
 
 export AWS_VAULT_KEYCHAIN_NAME=login
