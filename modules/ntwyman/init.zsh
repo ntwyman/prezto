@@ -27,6 +27,6 @@ fi
 
 alias mmm='prj mymove'
 ulimit -n 5000
-eval "$(direnv hook bash)"
+eval "$(direnv hook zsh)"
 
 export AWS_VAULT_KEYCHAIN_NAME=login
