@@ -5,7 +5,7 @@
 function prj {
     cd $HOME/src/$1
 }
-compctl -W $HOME/src -/ prj 
+compctl -W $HOME/src -/ prj
 
 #
 # Aliases
@@ -15,7 +15,7 @@ alias goops='git reset --soft HEAD~1'
 alias pjr='prj'
 alias fga='alias | grep git | grep'
 
-# Add jp to pretty print json if we have jq 
+# Add jp to pretty print json if we have jq
 if [ `command -v jq` ]; then
     alias jp="jq '.'"
 fi
@@ -29,11 +29,16 @@ fi
 
 alias mmm='prj mymove'
 ulimit -n 5000
-eval "$(direnv hook zsh)"
+if [ `command -v direnv` ]; then
+    eval "$(direnv hook bash)"
+fi
 
 if [ -d $HOME/.cargo ]; then
     path+=$HOME/.cargo/bin
 fi
 
-export AWS_VAULT_KEYCHAIN_NAME=login
+if [ -d $HOME/src/seL4-CAmkES-L4v-dockerfiles ]; then
+   alias container="make -C /$HOME/src/seL4-CAmkES-L4v-dockerfiles user HOST_DIR=$HOME/src/seL4_play"
+fi
 
+export AWS_VAULT_KEYCHAIN_NAME=login
