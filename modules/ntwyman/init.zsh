@@ -25,6 +25,8 @@ if [ -d /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin ]; the
 	alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
 fi
 
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+
 alias mmm='prj mymove'
 ulimit -n 5000
 eval "$(direnv hook zsh)"
