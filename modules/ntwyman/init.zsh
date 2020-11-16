@@ -32,8 +32,11 @@ fi
 
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
-alias mmm='prj mymove'
-ulimit -n 5000
+if [ `uname` = "Darwin" ]; then
+    ulimit -n 5000
+    echo "Limit"
+fi
+
 if [ `command -v direnv` ]; then
     eval "$(direnv hook bash)"
 fi
