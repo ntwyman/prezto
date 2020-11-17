@@ -34,7 +34,6 @@ fi
 
 if [ `uname` = "Darwin" ]; then
     ulimit -n 5000
-    echo "Limit"
 fi
 
 if [ `command -v direnv` ]; then
