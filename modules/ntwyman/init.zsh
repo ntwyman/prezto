@@ -44,4 +44,3 @@ if [ -d $HOME/src/seL4-CAmkES-L4v-dockerfiles ]; then
 fi
 
 export AWS_VAULT_KEYCHAIN_NAME=login
-
