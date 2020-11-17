@@ -42,3 +42,6 @@ if [ -d $HOME/src/seL4-CAmkES-L4v-dockerfiles ]; then
 fi
 
 export AWS_VAULT_KEYCHAIN_NAME=login
+
+export SDKMAN_DIR="/Users/nick/.sdkman"
+[[ -s "/Users/nick/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/nick/.sdkman/bin/sdkman-init.sh"
