@@ -7,6 +7,11 @@ function prj {
 }
 compctl -W $HOME/src -/ prj
 
+function container {
+  project=${1:-seL4_play}
+  make -C /$HOME/src/seL4-CAmkES-L4v-dockerfiles user HOST_DIR=$HOME/src/${project}
+}
+
 #
 # Aliases
 #
@@ -27,8 +32,10 @@ fi
 
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
-alias mmm='prj mymove'
-ulimit -n 5000
+if [ `uname` = "Darwin" ]; then
+    ulimit -n 5000
+fi
+
 if [ `command -v direnv` ]; then
     eval "$(direnv hook bash)"
 fi
@@ -37,8 +44,12 @@ if [ -d $HOME/.cargo ]; then
     path+=$HOME/.cargo/bin
 fi
 
-if [ -d $HOME/src/seL4-CAmkES-L4v-dockerfiles ]; then
-   alias container="make -C /$HOME/src/seL4-CAmkES-L4v-dockerfiles user HOST_DIR=$HOME/src/seL4_play"
+if [ -d $HOME/bin ]; then
+    path+=$HOME/bin
+    export PATH
 fi
 
 export AWS_VAULT_KEYCHAIN_NAME=login
+
+export SDKMAN_DIR="/Users/nick/.sdkman"
+[[ -s "/Users/nick/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/nick/.sdkman/bin/sdkman-init.sh"
