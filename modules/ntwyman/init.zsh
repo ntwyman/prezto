@@ -37,7 +37,7 @@ if [ `uname` = "Darwin" ]; then
 fi
 
 if [ `command -v direnv` ]; then
-    eval "$(direnv hook bash)"
+    eval "$(direnv hook zsh)"
 fi
 
 if [ -d $HOME/.cargo ]; then
