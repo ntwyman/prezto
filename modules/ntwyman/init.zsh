@@ -53,3 +53,6 @@ export AWS_VAULT_KEYCHAIN_NAME=login
 
 export SDKMAN_DIR="/Users/nick/.sdkman"
 [[ -s "/Users/nick/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/nick/.sdkman/bin/sdkman-init.sh"
+
+
+[[ -s "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
