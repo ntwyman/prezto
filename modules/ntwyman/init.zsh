@@ -19,6 +19,9 @@ alias src='cd ~/src/'
 alias goops='git reset --soft HEAD~1'
 alias pjr='prj'
 alias fga='alias | grep git | grep'
+alias brc='ssh bramble-control.local'
+alias br0='ssh bramble-worker0.local'
+alias br1='ssh bramble-worker1.local'
 
 # Add jp to pretty print json if we have jq 
 if [ `command -v jq` ]; then
