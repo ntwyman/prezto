@@ -49,7 +49,11 @@ fi
 
 if [ -d $HOME/bin ]; then
     path+=$HOME/bin
-    export PATH
+fi
+
+jdir=`ls -d /Applications/Julia*`
+if [ -d $jdir/Contents/Resources/julia/bin ] ; then
+    alias julia="$jdir/Contents/Resources/julia/bin/julia"
 fi
 
 export AWS_VAULT_KEYCHAIN_NAME=login
