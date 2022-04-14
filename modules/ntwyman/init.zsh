@@ -9,7 +9,7 @@ compctl -W $HOME/src -/ prj
 
 function container {
   project=${1:-seL4_play}
-  make -C /$HOME/src/seL4-CAmkES-L4v-dockerfiles user HOST_DIR=$HOME/src/${project}
+  make -C /$HOME/src/sel4_dockerfiles user HOST_DIR=$HOME/src/${project}
 }
 
 #
