@@ -51,7 +51,9 @@ if [ -d $HOME/bin ]; then
     path+=$HOME/bin
 fi
 
-jdir=`ls -d /Applications/Julia*`
+setopt +o nomatch
+jdir=`ls -d /Applications/Julia* 2>/dev/null`
+setopt -o nomatch
 if [ -d $jdir/Contents/Resources/julia/bin ] ; then
     alias julia="$jdir/Contents/Resources/julia/bin/julia"
 fi
@@ -63,3 +65,5 @@ export SDKMAN_DIR="/Users/nick/.sdkman"
 
 
 [[ -s "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+
+[[ -d /opt/homebrew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
