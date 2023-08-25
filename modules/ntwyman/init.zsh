@@ -47,12 +47,16 @@ if [ -d $HOME/.cargo ]; then
     path+=$HOME/.cargo/bin
 fi
 
+if [ -d $HOME/.local/share/ponyup ]; then
+    path+=$HOME/.local/share/ponyup/bin
+fi
+
 if [ -d $HOME/bin ]; then
     path+=$HOME/bin
 fi
 
-if [ -d $HOME/.local/share/ponyup ]; then
-    path+=$HOME/.local/share/ponyup/bin
+if [ -d $HOME/.asdf ]; then
+    . "$HOME/.asdf/asdf.sh"
 fi
 
 setopt +o nomatch
