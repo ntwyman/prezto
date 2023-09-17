@@ -44,7 +44,11 @@ if [ $(command -v direnv) ]; then
 fi
 
 if [ -d $HOME/.cargo ]; then
+    . "$HOME/.cargo/env"
     path+=$HOME/.cargo/bin
+fi
+if [ -d $HOME/.docker ]; then
+    source /Users/nick/.docker/init-zsh.sh
 fi
 
 if [ -d $HOME/.local/share/ponyup ]; then
