@@ -47,7 +47,7 @@ if [ -d $HOME/.cargo ]; then
     . "$HOME/.cargo/env"
     path+=$HOME/.cargo/bin
 fi
-if [ -d $HOME/.docker ]; then
+if [ -f $HOME/.docker/init-zsh.sh ]; then
     source /Users/nick/.docker/init-zsh.sh
 fi
 
