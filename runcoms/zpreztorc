@@ -39,11 +39,8 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-<<<<<<< HEAD
   'history-substring-search' \
-=======
   'homebrew' \
->>>>>>> 17a3cf0 (Turned on homebrew)
   'prompt' \
   'git' \
   'python' \
