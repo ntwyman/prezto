@@ -48,7 +48,7 @@ if [ -d $HOME/.cargo ]; then
     path+=$HOME/.cargo/bin
 fi
 if [ -f $HOME/.docker/init-zsh.sh ]; then
-    source /Users/nick/.docker/init-zsh.sh
+    source $HOME/.docker/init-zsh.sh
 fi
 
 if [ -d $HOME/.local/share/ponyup ]; then
@@ -76,8 +76,8 @@ fi
 
 export AWS_VAULT_KEYCHAIN_NAME=login
 
-export SDKMAN_DIR="/Users/nick/.sdkman"
-[[ -s "/Users/nick/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/nick/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 [[ -s "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 
@@ -91,16 +91,18 @@ if type brew &>/dev/null; then
 fi
 
 # >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/nick/miniconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/nick/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/nick/miniconda3/etc/profile.d/conda.sh"
+if [ -d $HOME/miniconda3 ]; then
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
     else
-        export PATH="/Users/nick/miniconda3/bin:$PATH"
+        if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+            . "$HOME/miniconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="$HOME/miniconda3/bin:$PATH"
+        fi
     fi
+    unset __conda_setup
 fi
-unset __conda_setup
 # <<< conda initialize <<<
