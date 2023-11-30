@@ -5,7 +5,7 @@
 function prj {
     cd $HOME/src/$1
 }
-compctl -W $HOME/src -/ prj 
+compctl -W $HOME/src -/ prj
 
 function container {
     project=${1:-seL4_play}
@@ -63,6 +63,10 @@ if [ -d $HOME/.asdf ]; then
     . "$HOME/.asdf/asdf.sh"
 fi
 
+if [ -d $HOME/Applications/flutter ]; then
+    path+=$HOME/Applications/flutter/bin
+fi
+
 setopt +o nomatch
 jdir=$(ls -d /Applications/Julia* 2>/dev/null)
 setopt -o nomatch
@@ -85,3 +89,18 @@ if type brew &>/dev/null; then
     autoload -Uz compinit
     compinit
 fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/nick/miniconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/nick/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/nick/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/nick/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
