@@ -106,3 +106,11 @@ if [ -d $HOME/miniconda3 ]; then
     unset __conda_setup
 fi
 # <<< conda initialize <<<
+
+if which swiftenv >/dev/null; then
+    eval "$(swiftenv init -)"
+fi
+
+if [ -d $HOME/esp/esp-idf ]; then
+    alias idf_on='. $HOME/esp/esp-idf/export.sh && . $HOME/esp/esp-matter/export.sh'
+fi
