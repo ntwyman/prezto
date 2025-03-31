@@ -8,8 +8,7 @@ function prj {
 compctl -W $HOME/src -/ prj
 
 function container {
-    project=${1:-seL4_play}
-    make -C /$HOME/src/sel4_dockerfiles user HOST_DIR=$HOME/src/${project}
+    make -C /$HOME/src/seL4-CAmkES-L4v-dockerfiles user HOST_DIR=$(pwd)
 }
 
 #
@@ -53,6 +52,10 @@ fi
 
 if [ -d $HOME/.local/share/ponyup ]; then
     path+=$HOME/.local/share/ponyup/bin
+fi
+
+if [ -d $HOME/.local/bin ]; then
+    path+=$HOME/.local/bin
 fi
 
 if [ -d $HOME/bin ]; then
@@ -113,4 +116,12 @@ fi
 
 if [ -d $HOME/esp/esp-idf ]; then
     alias idf_on='. $HOME/esp/esp-idf/export.sh && . $HOME/esp/esp-matter/export.sh'
+fi
+
+if [ -h "/opt/homebrew/bin/assume" ]; then
+    alias assume="source /opt/homebrew/bin/assume"
+fi
+
+if [ -a "opt/homebrew/bin/terraform" ]; then
+    complete -o nospace -C /opt/homebrew/bin/terraform terraform
 fi

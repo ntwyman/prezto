@@ -38,6 +38,7 @@ zstyle ':prezto:load' pmodule \
   'directory' \
   'spectrum' \
   'utility' \
+  'node' \
   'completion' \
   'history-substring-search' \
   'homebrew' \
