@@ -101,7 +101,7 @@ if [[ -d $HOME/miniconda3 || -d /opt/anaconda3 ]]; then
         CONDA_BASE="/opt/anaconda3"
     fi
     # !! Contents within this block are managed by 'conda init' !!
-    __conda_setup="$('$CONDA_BASE/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
+    __conda_setup="$(${CONDA_BASE}/bin/conda 'shell.zsh' 'hook')"
     if [ $? -eq 0 ]; then
         eval "$__conda_setup"
     else
@@ -113,7 +113,7 @@ if [[ -d $HOME/miniconda3 || -d /opt/anaconda3 ]]; then
     fi
     unset __conda_setup
 fi
-# <<< conda initialize <<<
+
 
 if which swiftenv >/dev/null; then
     eval "$(swiftenv init -)"
