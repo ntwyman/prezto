@@ -46,7 +46,8 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'python' \
   'ruby' \
-  'ntwyman'
+  'ntwyman'\
+  'acds'
 
 #
 # Autosuggestions
