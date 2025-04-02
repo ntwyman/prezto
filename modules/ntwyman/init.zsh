@@ -122,6 +122,7 @@ if [ -h "/opt/homebrew/bin/assume" ]; then
     alias assume="source /opt/homebrew/bin/assume"
 fi
 
-if [ -a "opt/homebrew/bin/terraform" ]; then
+if [ -e "/opt/homebrew/bin/terraform" ]; then
+    autoload -U +X bashcompinit && bashcompinit
     complete -o nospace -C /opt/homebrew/bin/terraform terraform
 fi
