@@ -114,7 +114,6 @@ if [[ -d $HOME/miniconda3 || -d /opt/anaconda3 ]]; then
     unset __conda_setup
 fi
 
-
 if which swiftenv >/dev/null; then
     eval "$(swiftenv init -)"
 fi
@@ -136,8 +135,7 @@ fi
 if [ -d $HOME/Library/pnpm ]; then
     export PNPM_HOME="$HOME/Library/pnpm"
     case ":$PATH:" in
-        *":$PNPM_HOME:"*) ;;
-        *) export PATH="$PNPM_HOME:$PATH" ;;
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
     esac
 fi
-
