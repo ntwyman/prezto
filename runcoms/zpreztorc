@@ -42,14 +42,16 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'node' \
+  'python' \
+  'conda-zsh-completion' \
   'completion' \
   'history-substring-search' \
   'homebrew' \
   'prompt' \
   'git' \
-  'python' \
   'ruby' \
   'ntwyman'
+
 
 #
 # Autosuggestions
